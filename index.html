@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-PDF Viewer</title>
+    <style>
+      /* Basic styling for the entire page */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #333;
+      }
+
+      /* Styling the toolbar container */
+      .toolbar {
+        margin: 20px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      /* Button styling for PDF selection */
+      .toolbar button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .toolbar button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Styling for the PDF container */
+      .pdf-container {
+        width: 80%;
+        max-width: 900px;
+        height: 80vh;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      /* PDF loading text */
+      .loading-text {
+        font-size: 18px;
+        color: #666;
+      }
+
+      /* PDF viewer iframe */
+      #pdf-viewer {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <button onclick="loadPDF('./25-Bash-Scripts-Examples.pdf')">
+        25 Bash Scripts
+      </button>
+      <button onclick="loadPDF('./60761-Linux.pdf')">60761 Linux</button>
+      <button onclick="loadPDF('./AdminLinuxScripts.pdf')">
+        Admin Linux Scripts
+      </button>
+      <button onclick="loadPDF('./Devops-course-list.pdf')">
+        Devops Course list (Geek for geeks )
+      </button>
+      <button onclick="loadPDF('./LinuxCommands.pdf')">Linux Commands</button>
+      <button onclick="loadPDF('./Shell-Scripting-Assignments.pdf')">
+        Shell Scripting Assignment
+      </button>
+      <button onclick="loadPDF('./ShellScripting.pdf')">Shell Scripting</button>
+      <button onclick="loadPDF('./Top50LinuxCommands.pdf')">
+        Top 50 Linux LinuxCommands
+      </button>
+    </div>
+
+    <div class="pdf-container">
+      <div id="loading" class="loading-text">Select a PDF to view</div>
+      <iframe id="pdf-viewer"></iframe>
+    </div>
+
+    <script>
+      function loadPDF(pdfFile) {
+        const viewer = document.getElementById("pdf-viewer");
+        const loadingText = document.getElementById("loading");
+
+        // Show loading text while PDF loads
+        loadingText.style.display = "block";
+        viewer.style.display = "none";
+
+        // Set iframe src to the selected PDF file
+        viewer.src = pdfFile;
+
+        // Once the PDF is loaded, hide the loading text
+        viewer.onload = () => {
+          loadingText.style.display = "none";
+          viewer.style.display = "block";
+        };
+      }
+    </script>
+  </body>
+</html>
