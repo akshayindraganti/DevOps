@@ -16,9 +16,11 @@
         font-family: Arial, sans-serif;
         background-color: #f0f2f5;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         color: #333;
+        margin: 2rem 0;
+        background-color: #333;
       }
 
       /* Styling the toolbar container */
@@ -27,6 +29,7 @@
         display: flex;
         gap: 10px;
         justify-content: center;
+        flex-direction: column;
       }
 
       /* Button styling for PDF selection */
@@ -45,12 +48,15 @@
         background-color: #0056b3;
       }
 
+      .required {
+        color: #df2c35;
+      }
+
       /* Styling for the PDF container */
       .pdf-container {
         width: 80%;
         max-width: 900px;
         height: 80vh;
-        background-color: #fff;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         overflow: hidden;
@@ -58,12 +64,18 @@
         justify-content: center;
         align-items: center;
         position: relative;
+        background-color: #333;
       }
 
       /* PDF loading text */
       .loading-text {
         font-size: 18px;
         color: #666;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
       }
 
       /* PDF viewer iframe */
@@ -77,23 +89,47 @@
   </head>
   <body>
     <div class="toolbar">
-      <button onclick="loadPDF('./25-Bash-Scripts-Examples.pdf')">
-        25 Bash Scripts
-      </button>
-      <button onclick="loadPDF('./60761-Linux.pdf')">60761 Linux</button>
-      <button onclick="loadPDF('./AdminLinuxScripts.pdf')">
-        Admin Linux Scripts
-      </button>
       <button onclick="loadPDF('./Devops-course-list.pdf')">
         Devops Course list (Geek for geeks )
       </button>
+
+      <button onclick="loadPDF('./25-Bash-Scripts-Examples.pdf')">
+        25 Bash Scripts
+      </button>
+
+      <button onclick="loadPDF('./60761-Linux.pdf')">60761 Linux</button>
+
+      <button onclick="loadPDF('./AdminLinuxScripts.pdf')">
+        Admin Linux Scripts
+      </button>
+
       <button onclick="loadPDF('./LinuxCommands.pdf')">Linux Commands</button>
+
       <button onclick="loadPDF('./Shell-Scripting-Assignments.pdf')">
         Shell Scripting Assignment
       </button>
+
       <button onclick="loadPDF('./ShellScripting.pdf')">Shell Scripting</button>
+
       <button onclick="loadPDF('./Top50LinuxCommands.pdf')">
         Top 50 Linux LinuxCommands
+      </button>
+
+      <button onclick="loadPDF('./Version Control System.pdf')">
+        Version Control Systems
+      </button>
+
+      <button onclick="loadPDF('./Create a Free Tier AWS Account.pdf')">
+        Create a free tier AWS account
+      </button>
+
+      <button onclick="loadPDF('./Cloud Computing.pdf')">
+        Cloud Computing PDF
+      </button>
+
+      <button onclick="loadPDF('./Git Branching Strategy.pdf')">
+        Git Branching Strategy
+        <span class="required">*</span>
       </button>
     </div>
 
